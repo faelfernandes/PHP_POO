@@ -1,0 +1,37 @@
+$git config --global user.name "oparango"
+$git config --global user.email "ctt.rafaelfernades@gmai.com"
+
+$git init (Iniciar repositório)
+$git status (Ver status do repositório) Em vermelho
+$git add . (Adicionar ao repositório) Agora está até verde
+
+Nomear o primeiro COMMIT
+$git commit -m "Primeiro Commit"
+
+Avisar para onde os arquivos irão (URL)
+$git remote add origin https://github.com/oparango/URL.git
+
+Subir arquivo
+$git push origin master
+(Se não estiver logado irá abrir a página de login)
+
+Subir outros arquivos (alterações)
+$git status (Mostrará arquivos modificados)
+(Caso tenha fechado o git, iniciar novamente o $git init)
+
+$git add . (Enviara os arquivos modificados)
+$git commit -m "Nome do novo commit dos arquivos"
+$git status (Tudo verde, ou seja, ok)
+(No caso a URL já foi colocada, ir direto para 
+$git push origin master)
+
+### EXTRAS ###
+Para verificar se deu certo:
+# Isso vai listar o link dos seus repositórios remotos
+$ git remote -v
+
+Git push (Enviar atualizações)
+Finalmente vamos enviar as alterações para o github. O comando basicamente é:
+
+$ git push -u origin <branch>.
+# Nesse caso como é nossa estrutura inicial vamos enviar para o master.
