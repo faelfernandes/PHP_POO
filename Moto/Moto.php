@@ -84,30 +84,30 @@ class Moto implements AcoesMoto
     }
 
     public function colocarGasolina($qtd)
-    {
-        if ($this->getGasolina() >= 100) {
+    {   
+        $combustivel = $this->gasolina + $qtd;
+        if ($combustivel >= 100) {
             $this->gasolina = 100;
-            echo '<p>Tanque Cheio.</p>';
+            echo '<p>Enchi o tanque.</p>';
         } else {
             $this->gasolina = ($qtd + $this->getGasolina());
             echo "<p>Abasteci R$ {$qtd} em gasolina.</p>";
-            echo "<p>Tanque gasolina: {$this->getGasolina()}%</p>";
         }
     }
     public function andarMoto()
-    {   
+    {
         if ($this->dono->getHabilitado()) {
             echo '<p>Habilitado</p>';
+            if ($this->getGasolina() <= 0) {
+                echo '<p>Abasteça sua moto</p>';
+            } elseif ($this->getCapacete() === false) {
+                echo '<p>Coloque seu capacete!</p>';
+            } else {
+                $this->pilotando = true;
+                echo '<p>Andando de moto</p>';
+            }
         } else {
             echo '<p>Sem Habilitação</p>';
-        }
-        if ($this->getGasolina() <= 0) {
-            echo '<p>Abasteça sua moto</p>';
-        } elseif ($this->getCapacete() === false) {
-            echo '<p>Coloque seu capacete!</p>';
-        } else {
-            $this->pilotando = true;
-            echo '<p>Andando de moto</p>';
         }
     }
     public function descerMoto()
@@ -119,7 +119,6 @@ class Moto implements AcoesMoto
             $this->pilotando = true;
             echo '<p>Você desceu da moto.</p>';
         }
-        
     }
     public function tirarCapacete()
     {
@@ -130,10 +129,13 @@ class Moto implements AcoesMoto
             $this->capacete = true;
             echo '<p>Você tirou o capacete.</p>';
         }
-        
     }
     public function colocarCapacete()
     {
         $this->capacete = true;
+    }
+    public function statusMoto()
+    {
+        echo "<p>Tanque Atual: {$this->getGasolina()}%.</p>";
     }
 }

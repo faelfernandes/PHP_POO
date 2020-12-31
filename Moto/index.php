@@ -15,13 +15,20 @@
 
     $p[0] = new Habilitado("Rafael", 21, "M", "A");
     $m[0] = new Moto("XRE", 300, "PRETA", $p[0]);
-
-    $m[0]->colocarCapacete();
-    $m[0]->andarMoto();
+    
+    $m[0]->statusMoto();
+    $m[0]->setGasolina(0);
+    $m[0]->statusMoto();
+    $m[0]->colocarGasolina(60);
+    $m[0]->colocarGasolina(40);
+    //$m[0]->colocarCapacete();
+    //$m[0]->andarMoto();
 
     echo '<pre>';
     print_r($m);
     echo '</pre>';
+
+    $m[0]->statusMoto();
 
     ?>
 </body>
